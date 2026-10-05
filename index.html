@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josefina Mis 15</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        purple: {
+                            900: '#3B1F54',
+                            950: '#231132',
+                            light: '#F3EBF7',
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F1E5AC',
+                            dark: '#997A15'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Fondo inspirado en la imagen: degradé lila brillante arriba con efecto bokeh y textura de glitter abajo */
+        .glitter-purple-bg {
+            background: 
+                /* Luces Bokeh superiores */
+                radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.7) 0%, rgba(230, 190, 255, 0.3) 25%, transparent 60%),
+                radial-gradient(circle at 20% 30%, rgba(240, 180, 255, 0.5) 0%, transparent 40%),
+                radial-gradient(circle at 80% 25%, rgba(255, 220, 255, 0.5) 0%, transparent 45%),
+                /* Transición de lila claro a violeta texturizado con brillo de glitter */
+                linear-gradient(180deg, #E8B4F8 0%, #BA68C8 35%, #7B1FA2 70%, #4A148C 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Destellos flotantes fijos en CSS puro */
+        .sparkle-star {
+            position: absolute;
+            color: #FFF;
+            text-shadow: 0 0 12px #FFD700, 0 0 20px #FFF, 0 0 30px #DA70D6;
+            animation: floatSparkle 4s ease-in-out infinite;
+            user-select: none;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes floatSparkle {
+            0%, 100% {
+                transform: translateY(0px) scale(0.8);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-25px) scale(1.2);
+                opacity: 1;
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-purple-light text-purple-950 antialiased selection:bg-gold/30">
+
+    <!-- REPRODUCTOR DE MÚSICA FLOTANTE -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <span id="music-label" class="bg-white/90 backdrop-blur text-purple-950 text-xs px-3 py-1.5 rounded-full shadow-md border border-gold/40 font-medium animate-pulse">
+            🎵 Toca para reproducir música
+        </span>
+        <audio id="background-music" preload="auto" loop>
+            <source src="Ed Sheeran - Perfect (Official Music Video).mp3" type="audio/mpeg">
+        </audio>
+        <button id="music-toggle" class="bg-purple-900 text-gold border border-gold/40 shadow-xl p-4 rounded-full hover:scale-105 transition flex items-center justify-center cursor-pointer" title="Reproducir / Pausar música">
+            <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+        </button>
+    </div>
+
+    <main class="w-full max-w-md mx-auto my-8 z-10 space-y-6">
+
+        <!-- Hero Section -->
+        <section class="glass-card rounded-3xl p-8 text-center relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl"></div>
+            
+            <p class="uppercase tracking-widest text-xs text-purple-300 mb-2 font-medium">Mis 15 Años</p>
+            <h1 class="font-script text-6xl text-yellow-200 mb-6 drop-shadow-md">Josefina</h1>
+            
+            <!-- Frase personalizada del usuario -->
+            <blockquote class="italic text-purple-100/90 text-sm leading-relaxed px-2 font-light border-l-2 border-yellow-400/50 my-4 text-left">
+                "Hoy comienza una nueva etapa llena de sueños, emociones que van a durar para siempre. Y quiero compartirlo con ustedes..."
+            </blockquote>
+        </section>
+
+
+
+    <!-- CUENTA REGRESIVA -->
+    <section id="cuenta-regresiva" class="py-24 px-4 text-center max-w-4xl mx-auto">
+        <h2 class="font-serif text-3xl sm:text-4xl mb-4 text-purple-900 font-bold">Cuenta Regresiva</h2>
+        <p class="text-purple-900/70 mb-12 text-sm">Preparate para una noche mágica e inolvidable.</p>
+        
+        <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-purple-950">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gold/30">
+                <span id="days" class="font-serif text-4xl sm:text-5xl block font-bold mb-1 text-purple-900">00</span>
+                <span class="text-xs uppercase tracking-widest text-gold-dark font-semibold">Días</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gold/30">
+                <span id="hours" class="font-serif text-4xl sm:text-5xl block font-bold mb-1 text-purple-900">00</span>
+                <span class="text-xs uppercase tracking-widest text-gold-dark font-semibold">Horas</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gold/30">
+                <span id="minutes" class="font-serif text-4xl sm:text-5xl block font-bold mb-1 text-purple-900">00</span>
+                <span class="text-xs uppercase tracking-widest text-gold-dark font-semibold">Minutos</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gold/30">
+                <span id="seconds" class="font-serif text-4xl sm:text-5xl block font-bold mb-1 text-purple-900">00</span>
+                <span class="text-xs uppercase tracking-widest text-gold-dark font-semibold">Segundos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMACIÓN / LUGARES -->
+    <section class="py-20 bg-white/60 px-4 border-y border-gold/20">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-center">
+            <div class="bg-purple-light p-8 rounded-2xl shadow-sm border border-gold/40">
+                <h3 class="font-serif text-2xl mb-3 text-purple-900 font-bold">Fecha y Hora</h3>
+                <p class="text-purple-950/80 mb-6 text-sm">Sábado 14 de Noviembre, 2026<br><strong>21:00 hs</strong><br>¡Te esperamos!</p>
+                <span class="inline-block text-xs uppercase tracking-widest text-gold-dark font-bold border-b border-gold pb-1">14 . 11 . 2026</span>
+            </div>
+            <div class="bg-purple-light p-8 rounded-2xl shadow-sm border border-gold/40">
+                <h3 class="font-serif text-2xl mb-3 text-purple-900 font-bold">Salón "El Ismael"</h3>
+                <p class="text-purple-950/80 mb-6 text-sm">Av. Juan Chapar 1348<br>Miramar, Buenos Aires</p>
+                <a href="https://maps.google.com/?q=Av.+Juan+Chapar+1348,+Miramar" target="_blank" class="inline-block text-xs uppercase tracking-widest text-gold-dark font-bold border-b border-gold pb-1 hover:opacity-70 transition">Ver Ubicación en Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN REGALOS (ALIAS CBU) -->
+    <section class="py-20 px-4 max-w-xl mx-auto text-center">
+        <h2 class="font-serif text-3xl sm:text-4xl mb-3 text-purple-900 font-bold">Regalos</h2>
+        <p class="text-purple-950/70 mb-8 text-sm">El mejor regalo es tu presencia, pero si querés colaborarme con mi viaje o fiesta, te dejo mi alias:</p>
+        
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gold/40 relative">
+            <span class="block text-xs uppercase tracking-widest text-gold-dark font-bold mb-2">Alias Bancario</span>
+            <div id="alias-text" class="font-mono text-xl sm:text-2xl font-bold text-purple-950 tracking-wider mb-6 bg-purple-light py-3 rounded-xl border border-dashed border-gold">
+                josefina.mis15.cbu
+            </div>
+            <button onclick="copyAlias()" id="copy-btn" class="w-full bg-purple-900 text-gold border border-gold/40 py-3 rounded-xl font-medium tracking-wide hover:bg-purple-950 transition shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                <span>Copiar Alias</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- CONFIRMACIÓN DE ASISTENCIA (GOOGLE FORMS) -->
+    <section class="py-20 px-4 max-w-xl mx-auto text-center bg-purple-900 text-white rounded-3xl my-10 shadow-xl border border-gold/40">
+        <h2 class="font-serif text-3xl sm:text-4xl mb-4 text-gold font-bold">CONFIRMACIÓN DE ASISTENCIA </h2>
+        <p class="text-purple-100 mb-8 text-sm">Es muy importante para nosotros saber si vas a asistir y si tenés alguna exigencia en el menú (vegetariano, celíaco, etc.).</p>
+        
+        <a href="https://forms.gle/tu-enlace-de-google-form" target="_blank" class="inline-block bg-gold text-purple-950 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gold-light transition shadow-lg">
+            Completar Formulario de Asistencia
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 text-center text-xs tracking-widest uppercase text-purple-900/60">
+        <p>¡Te esperamos para brillar juntos!</p>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <script>
+        // 1. CUENTA REGRESIVA
+        const targetDate = new Date("2026-11-14T21:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                document.getElementById("days").innerText = Math.floor(difference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 2. REPRODUCTOR DE MÚSICA
+        const music = document.getElementById("background-music");
+        const musicToggle = document.getElementById("music-toggle");
+        const musicLabel = document.getElementById("music-label");
+        let isPlaying = false;
+
+        musicToggle.addEventListener("click", () => {
+            if (isPlaying) {
+                music.pause();
+                musicToggle.classList.remove("ring-4", "ring-gold");
+                musicLabel.innerText = "🎵 Música pausada";
+            } else {
+                music.play().then(() => {
+                    musicToggle.classList.add("ring-4", "ring-gold");
+                    musicLabel.innerText = "🎶 Reproduciendo...";
+                    setTimeout(() => { musicLabel.style.display = 'none'; }, 3000);
+                }).catch(error => {
+                    console.log("Error al reproducir audio:", error);
+                    alert("Haz clic nuevamente en el botón para permitir la reproducción.");
+                });
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // 3. COPIAR ALIAS AL PORTAPAPELES
+        function copyAlias() {
+            const aliasText = document.getElementById("alias-text").innerText;
+            navigator.clipboard.writeText(aliasText).then(() => {
+                const btn = document.getElementById("copy-btn");
+                btn.innerHTML = "<span>¡Alias copiado con éxito! ✨</span>";
+                btn.classList.add("bg-emerald-800", "text-white");
+                setTimeout(() => {
+                    btn.innerHTML = "<span>Copiar Alias</span>";
+                    btn.classList.remove("bg-emerald-800", "text-white");
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
