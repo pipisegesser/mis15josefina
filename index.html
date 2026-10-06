@@ -33,36 +33,37 @@
         }
     </script>
 <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(rgba(46, 26, 71, 0.4), rgba(31, 17, 53, 0.6)), url('fondo.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        color: #f3e8ff;
-        overflow-x: hidden;
-    }
-    .font-script {
-        font-family: 'Great Vibes', cursive;
-    }
-    .sparkle {
-        position: absolute;
-        color: #ffd700;
-        animation: floatSparkle 4s ease-in-out infinite;
-        pointer-events: none;
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    }
-    @keyframes floatSparkle {
-        0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
-        50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
-    }
-    .glass-card {
-        background: rgba(45, 24, 71, 0.65);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(216, 180, 254, 0.2);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    }
-</style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(46, 26, 71, 0.45), rgba(31, 17, 53, 0.65)), url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f3e8ff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+        .sparkle {
+            position: absolute;
+            color: #ffd700;
+            animation: floatSparkle 4s ease-in-out infinite;
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+        @keyframes floatSparkle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+        }
+        .glass-card {
+            background: rgba(45, 24, 71, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(216, 180, 254, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 
 </head>
 <body class="bg-purple-light text-purple-950 antialiased selection:bg-gold/30">
