@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josefina mis 15</title>
+    <title>Josefina Mis 15</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Great Vibes & Poppins -->
@@ -29,14 +29,18 @@
             border: 1px solid rgba(216, 180, 254, 0.25);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
-        /* Cada sección ocupa toda la pantalla para dar el efecto de páginas separadas */
-        .page-section {
+        /* Cada sección ocupa una pantalla completa para el efecto de páginas independientes */
+        .page-screen {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
+            scroll-snap-align: start;
+        }
+        html {
+            scroll-snap-type: y mandatory;
         }
     </style>
 </head>
@@ -53,10 +57,9 @@
         <span id="music-icon">🎵</span> <span id="music-text" class="hidden sm:inline">Música</span>
     </button>
 
-    <!-- SECCIÓN 1: Presentación (Pantalla principal) -->
-    <section class="page-section">
+    <!-- PANTALLA 1: Presentación / Portada -->
+    <section class="page-screen">
         <div class="w-full max-w-md mx-auto space-y-6 text-center">
-            
             <div class="glass-card rounded-3xl p-8 relative overflow-hidden">
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
                 <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl"></div>
@@ -69,99 +72,112 @@
                 </blockquote>
             </div>
 
-            <!-- Botón Descubrir Más -->
-            <a href="#invitation-content" class="inline-block py-3 px-8 bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-yellow-200 font-medium rounded-full shadow-lg border border-purple-400/40 transition transform hover:scale-105 text-sm uppercase tracking-wider">
+            <a href="#countdown-screen" class="inline-block py-3 px-8 bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-yellow-200 font-medium rounded-full shadow-lg border border-purple-400/40 transition transform hover:scale-105 text-sm uppercase tracking-wider">
                 Descubrir más ✨
             </a>
-
         </div>
     </section>
 
-    <!-- SECCIÓN 2: Detalles de la Invitación (Aparece al hacer clic) -->
-    <div id="invitation-content" class="w-full max-w-md mx-auto space-y-6 pb-16 px-4">
-
-        <!-- Cuenta Regresiva -->
-        <section class="glass-card rounded-3xl p-6 text-center">
-            <h2 class="text-xs uppercase tracking-widest text-purple-300 mb-4 font-semibold">Faltan</h2>
-            <div id="countdown" class="grid grid-cols-4 gap-2 text-purple-100">
-                <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
-                    <span id="days" class="text-2xl font-bold text-yellow-300 block">00</span>
-                    <span class="text-[10px] uppercase text-purple-300">Días</span>
-                </div>
-                <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
-                    <span id="hours" class="text-2xl font-bold text-yellow-300 block">00</span>
-                    <span class="text-[10px] uppercase text-purple-300">Horas</span>
-                </div>
-                <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
-                    <span id="minutes" class="text-2xl font-bold text-yellow-300 block">00</span>
-                    <span class="text-[10px] uppercase text-purple-300">Min</span>
-                </div>
-                <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
-                    <span id="seconds" class="text-2xl font-bold text-yellow-300 block">00</span>
-                    <span class="text-[10px] uppercase text-purple-300">Seg</span>
+    <!-- PANTALLA 2: Cuenta Regresiva -->
+    <section id="countdown-screen" class="page-screen">
+        <div class="w-full max-w-md mx-auto text-center space-y-6">
+            <div class="glass-card rounded-3xl p-8 space-y-6">
+                <h2 class="text-xs uppercase tracking-widest text-purple-300 font-semibold">Cuenta Regresiva</h2>
+                <p class="text-sm text-purple-200">Preparate para una noche mágica e inolvidable.</p>
+                <div id="countdown" class="grid grid-cols-4 gap-2 text-purple-100">
+                    <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
+                        <span id="days" class="text-2xl font-bold text-yellow-300 block">00</span>
+                        <span class="text-[10px] uppercase text-purple-300">Días</span>
+                    </div>
+                    <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
+                        <span id="hours" class="text-2xl font-bold text-yellow-300 block">00</span>
+                        <span class="text-[10px] uppercase text-purple-300">Horas</span>
+                    </div>
+                    <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
+                        <span id="minutes" class="text-2xl font-bold text-yellow-300 block">00</span>
+                        <span class="text-[10px] uppercase text-purple-300">Min</span>
+                    </div>
+                    <div class="bg-purple-950/40 p-3 rounded-2xl border border-purple-500/20">
+                        <span id="seconds" class="text-2xl font-bold text-yellow-300 block">00</span>
+                        <span class="text-[10px] uppercase text-purple-300">Seg</span>
+                    </div>
                 </div>
             </div>
-        </section>
+            <a href="#location-screen" class="inline-block text-purple-300 text-xs tracking-widest uppercase hover:text-yellow-200 transition">Siguiente </a>
+        </div>
+    </section>
 
-        <!-- Cuándo y Dónde -->
-        <section class="glass-card rounded-3xl p-6 text-center space-y-6">
-            <div>
-                <h2 class="text-xs uppercase tracking-widest text-purple-300 mb-1 font-semibold">Cuándo</h2>
-                <p class="text-lg font-medium text-yellow-100">Sábado 14 de Noviembre, 2026</p>
-                <p class="text-sm text-purple-200">21:00 hs</p>
+    <!-- PANTALLA 3: Cuándo y Dónde -->
+    <section id="location-screen" class="page-screen">
+        <div class="w-full max-w-md mx-auto text-center space-y-6">
+            <div class="glass-card rounded-3xl p-8 space-y-6">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-purple-300 mb-1 font-semibold">Cuándo</h2>
+                    <p class="text-lg font-medium text-yellow-100">Sábado 14 de Noviembre, 2026</p>
+                    <p class="text-sm text-purple-200">21:00 hs</p>
+                </div>
+
+                <hr class="border-purple-500/20 w-1/2 mx-auto">
+
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-purple-300 mb-1 font-semibold">Dónde</h2>
+                    <p class="text-lg font-medium text-yellow-100">Salón "El Ismael"</p>
+                    <p class="text-sm text-purple-200">Av. Juan Chapar 1348, Miramar, Bs. As.</p>
+                    <a href="https://maps.google.com/?q=Av.+Juan+Chapar+1348,+Miramar" target="_blank" class="inline-block mt-3 px-5 py-2 text-xs font-medium tracking-wide uppercase bg-purple-700/60 hover:bg-purple-600/80 text-yellow-200 rounded-full border border-purple-400/30 transition shadow-md">
+                        Ver Ubicación en Mapa 🗺️
+                    </a>
+                </div>
             </div>
+            <a href="#rsvp-screen" class="inline-block text-purple-300 text-xs tracking-widest uppercase hover:text-yellow-200 transition">Siguiente </a>
+        </div>
+    </section>
 
-            <hr class="border-purple-500/20 w-1/2 mx-auto">
-
-            <div>
-                <h2 class="text-xs uppercase tracking-widest text-purple-300 mb-1 font-semibold">Dónde</h2>
-                <p class="text-lg font-medium text-yellow-100">Salón "El Ismael"</p>
-                <p class="text-sm text-purple-200">Av. Juan Chapar 1348, Miramar, Bs. As.</p>
-                <a href="https://maps.google.com/?q=Av.+Juan+Chapar+1348,+Miramar" target="_blank" class="inline-block mt-3 px-5 py-2 text-xs font-medium tracking-wide uppercase bg-purple-700/60 hover:bg-purple-600/80 text-yellow-200 rounded-full border border-purple-400/30 transition shadow-md">
-                    Ver Ubicación en Mapa 🗺️
+    <!-- PANTALLA 4: Confirmación de Asistencia -->
+    <section id="rsvp-screen" class="page-screen">
+        <div class="w-full max-w-md mx-auto text-center space-y-6">
+            <div class="glass-card rounded-3xl p-8 space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-purple-300 font-semibold">Confirmación de Asistencia</h2>
+                <p class="text-xs text-purple-200">Esperamos que formes parte de esta gran noche.</p>
+                <a href="https://forms.gle/TU_ENLACE_DE_GOOGLE_FORM" target="_blank" class="block w-full py-3.5 px-6 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-purple-950 font-semibold rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 text-sm">
+                    Confirmar Asistencia ✨
                 </a>
             </div>
-        </section>
+            <a href="#gifts-screen" class="inline-block text-purple-300 text-xs tracking-widest uppercase hover:text-yellow-200 transition">Siguiente </a>
+        </div>
+    </section>
 
-        <!-- Botón RSVP -->
-        <section class="glass-card rounded-3xl p-6 text-center">
-            <h2 class="text-xs uppercase tracking-widest text-purple-300 mb-2 font-semibold">Confirmación de Asistencia</h2>
-            <p class="text-xs text-purple-200 mb-4">Esperamos que formes parte de esta gran noche.</p>
-            <a href="https://forms.gle/TU_ENLACE_DE_GOOGLE_FORM" target="_blank" class="block w-full py-3.5 px-6 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-purple-950 font-semibold rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 text-sm">
-                Confirmar Asistencia ✨
-            </a>
-        </section>
+    <!-- PANTALLA 5: Regalos -->
+    <section id="gifts-screen" class="page-screen">
+        <div class="w-full max-w-md mx-auto text-center space-y-6">
+            <div class="glass-card rounded-3xl p-8 space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-purple-300 font-semibold">Regalos</h2>
+                <p class="text-xs text-purple-200">El mejor regalo es tu presencia, pero si querés tener un detalle, podés usar cualquiera de mis alias:</p>
+                
+                <!-- Primer Alias -->
+                <div class="bg-purple-950/60 border border-purple-400/30 p-3 rounded-2xl flex items-center justify-between">
+                    <span id="alias-1" class="text-sm font-mono text-yellow-200 tracking-wider">josefinaibarra.</span>
+                    <button onclick="copyAlias('josefinaibarra.', 'feedback-1')" class="bg-purple-700 hover:bg-purple-600 text-xs px-3 py-1.5 rounded-xl text-white transition flex items-center gap-1 shadow">
+                        Copiar 📋
+                    </button>
+                </div>
+                <p id="feedback-1" class="text-[10px] text-green-300 h-2 transition-opacity opacity-0">¡Alias copiado!</p>
 
-       <!-- Sección Regalos (Con los dos alias) -->
-        <section class="glass-card rounded-3xl p-6 text-center space-y-4">
-            <h2 class="text-xs uppercase tracking-widest text-purple-300 font-semibold">Regalos</h2>
-            <p class="text-xs text-purple-200">El mejor regalo es tu presencia, pero si querés tener un detalle, podés usar cualquiera de mis alias:</p>
-            
-            <!-- Primer Alias -->
-            <div class="bg-purple-950/60 border border-purple-400/30 p-3 rounded-2xl flex items-center justify-between">
-                <span id="alias-1" class="text-sm font-mono text-yellow-200 tracking-wider">josefinaibarra.</span>
-                <button onclick="copyAlias('josefinaibarra.', 'feedback-1')" class="bg-purple-700 hover:bg-purple-600 text-xs px-3 py-1.5 rounded-xl text-white transition flex items-center gap-1 shadow">
-                    Copiar 📋
-                </button>
+                <!-- Segundo Alias -->
+                <div class="bg-purple-950/60 border border-purple-400/30 p-3 rounded-2xl flex items-center justify-between">
+                    <span id="alias-2" class="text-sm font-mono text-yellow-200 tracking-wider">joseeibarraa</span>
+                    <button onclick="copyAlias('joseeibarraa', 'feedback-2')" class="bg-purple-700 hover:bg-purple-600 text-xs px-3 py-1.5 rounded-xl text-white transition flex items-center gap-1 shadow">
+                        Copiar 📋
+                    </button>
+                </div>
+                <p id="feedback-2" class="text-[10px] text-green-300 h-2 transition-opacity opacity-0">¡Alias copiado!</p>
             </div>
-            <p id="feedback-1" class="text-[10px] text-green-300 h-2 transition-opacity opacity-0">¡Alias copiado!</p>
 
-            <!-- Segundo Alias -->
-            <div class="bg-purple-950/60 border border-purple-400/30 p-3 rounded-2xl flex items-center justify-between">
-                <span id="alias-2" class="text-sm font-mono text-yellow-200 tracking-wider">joseeibarraa</span>
-                <button onclick="copyAlias('joseeibarraa', 'feedback-2')" class="bg-purple-700 hover:bg-purple-600 text-xs px-3 py-1.5 rounded-xl text-white transition flex items-center gap-1 shadow">
-                    Copiar 📋
-                </button>
-            </div>
-            <p id="feedback-2" class="text-[10px] text-green-300 h-2 transition-opacity opacity-0">¡Alias copiado!</p>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center text-[11px] text-purple-300/60 pt-6">
-            Hecho con ❤️ para los 15 de Josefina
-        </footer>
-
-    </div>
+            <!-- Footer -->
+            <footer class="text-center text-[11px] text-purple-300/60 pt-4">
+                Hecho con ❤️️ para los 15 de Josefina
+            </footer>
+        </div>
+    </section>
 
     <!-- Scripts -->
     <script>
@@ -190,10 +206,9 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        function copyAlias() {
-            const alias = "josefina.mis15.cbu";
-            navigator.clipboard.writeText(alias).then(() => {
-                const feedback = document.getElementById("copy-feedback");
+        function copyAlias(text, feedbackId) {
+            navigator.clipboard.writeText(text).then(() => {
+                const feedback = document.getElementById(feedbackId);
                 feedback.style.opacity = "1";
                 setTimeout(() => {
                     feedback.style.opacity = "0";
@@ -215,7 +230,7 @@
             } else {
                 music.play().then(() => {
                     isPlaying = true;
-                    musicIcon.innerText = "⏸️";
+                    musicIcon.innerText = "⏸️️";
                     musicText.innerText = "Pausar";
                 }).catch(e => {
                     console.log("Error al reproducir audio:", e);
